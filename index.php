@@ -28,6 +28,8 @@
   });
   </script>
 </head>
+<body>
+  <h1>Gaming Space</h1>
 <?php
 
 $db=new PDO('mysql:host=localhost;dbname=underground','root');
