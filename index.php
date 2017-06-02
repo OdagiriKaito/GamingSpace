@@ -88,6 +88,8 @@ echo  $_GET["id"]
   <tr>
     <td nowrap="" align="right" width="">
       カテゴリを選択
+    </td>
+    <td>
       <select name="category">
       <?php
       foreach($categorys as $row){
@@ -105,7 +107,13 @@ echo  $_GET["id"]
         $stmt =$db->query($sql);
         $subcategorys=$stmt->fetchAll();
       ?>
+    </td>
+  </tr>
+  <tr>
+    <td>
       サブカテゴリを選択
+    </td>
+    <td>
       <select name="subcategory">
       <?php
       foreach($subcategorys as $row){
@@ -118,7 +126,10 @@ echo  $_GET["id"]
       ?>
       </select>
       <br>
-  タイトル：</td><td><input name="subject" size="40" value="">&nbsp; &nbsp;
+  </td>
+</tr>
+<tr>
+  <td nowrap="" align="right" width="">タイトル：</td><td><input name="subject" size="40" value="">&nbsp; &nbsp;
     <input type="submit" name="submit" value="新規スレッド書込"></td></tr>
 <tr><td nowrap="" align="right" width="">
   名 前：</td><td nowrap=""><input name="FROM" size="19" value="">&nbsp;
