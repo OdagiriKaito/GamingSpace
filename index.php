@@ -34,7 +34,7 @@
     };
 
     function clickCategory(){
-      $(this).closest('li').find('.subcategory').slideToggle(300);
+      $(this).closest('li').find('.subcategory').slideToggle();
     }
 
     $(':input[name="category"]').change();
@@ -88,7 +88,7 @@ foreach($res as $row){
       foreach($subcategorys[$row['id']] as $key =>$subcategory){
     ?>
       <li>
-        <a href="/thread.php?id=<?php echo $subcategory['id'] ?>">
+        <a href="/thread_list.php?id=<?php echo $row['id'] ?>&subcat_id=<?php echo $subcategory['id'] ?>">
           <?php echo $subcategory['name'] ?>
         </a>
       </li>
