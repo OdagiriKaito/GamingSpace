@@ -4,12 +4,20 @@
   integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
   crossorigin="anonymous">
   </script>
+  <style type="text/css">
+  <!--
+    .subcategory{
+      display:none;
+    }
+  -->
+  </style>
   <meta charset="UTF-8">
   <script>
   jQuery(function($){
     console.log("Hello World");
     console.log($(document));
-    $(document).on('change',':input[name="category"]',categoryChangeEvent);
+    $(document).on('change',':input[name="category"]',categoryChangeEvent)
+               .on('click','.category',clickCategory);
 
     function categoryChangeEvent(){
       $self = $(this);
@@ -24,6 +32,11 @@
         console.log(res);
       });
     };
+
+    function clickCategory(){
+      $(this).closest('li').find('.subcategory').slideToggle(300);
+    }
+
     $(':input[name="category"]').change();
   });
   </script>
