@@ -45,19 +45,50 @@ $result=$stmt->fetchAll();
   <tr>
     <td colspan="2">
      カテゴリを選択</br>
+      <ul>
   <?php
+$sql = 'select * from subcategory order by cat_id, id';
+$stmt = $db->query($sql);
+$res = $stmt->fetchAll();
+$subcategorys = array();
+foreach($res as $row){
+  if(!isset($subcategorys[$row['cat_id']])){
+    $subcategorys[$row['cat_id']] = array();
+  }
+  array_push($subcategorys[$row['cat_id']],
+        array(
+              'id' => $row['id'],
+              'name' => $row['subcategory_name']
+            )
+        );
+}
+var_dump($subcategorys);
+
     $sql='select * from category';
     $stmt =$db->query($sql);
     $categorys=$stmt->fetchAll();
     foreach($categorys as $row){
   ?>
-    <a href="?id=<?php echo $row['id']?>">
-    <?php echo $row['category_name']
+  <li>
+    <span class="category"><?php echo $row['category_name']?></span>
+  <ul class='subcategory'>
+    <?php
+      foreach($subcategory as $subcategorys[$row['id']]){
     ?>
-    </a><br>
-<?php
-}
-?>
+      <li>
+        <a href="<?php echo $subcategoy['id'] ?>">
+          <?php echo $subcategory['name'] ?>
+        </a>
+      </li>
+      <?php
+      }
+      ?>
+     </ul>
+     <?php
+     }
+     ?>
+  </li>
+    </ul>
 <ul>
 <?php
   if($_GET["id"]){
@@ -69,7 +100,7 @@ $result=$stmt->fetchAll();
   $result=$stmt->fetchAll();
   foreach($result as $row){
 ?>
-<li><a href="<?php echo $row['id'] ?>">
+<li><a href="thread.php?=<?php echo $row['id'] ?>">
   <?php echo $row['title']
   ?>
 </a>
