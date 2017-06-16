@@ -62,7 +62,6 @@ foreach($res as $row){
             )
         );
 }
-var_dump($subcategorys);
 
     $sql='select * from category';
     $stmt =$db->query($sql);
@@ -73,10 +72,10 @@ var_dump($subcategorys);
     <span class="category"><?php echo $row['category_name']?></span>
   <ul class='subcategory'>
     <?php
-      foreach($subcategory as $subcategorys[$row['id']]){
+      foreach($subcategorys[$row['id']] as $key =>$subcategory){
     ?>
       <li>
-        <a href="<?php echo $subcategoy['id'] ?>">
+        <a href="/thread.php?id=<?php echo $subcategory['id'] ?>">
           <?php echo $subcategory['name'] ?>
         </a>
       </li>
@@ -84,10 +83,10 @@ var_dump($subcategorys);
       }
       ?>
      </ul>
-     <?php
-     }
-     ?>
   </li>
+  <?php
+  }
+  ?>
     </ul>
 <ul>
 <?php
