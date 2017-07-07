@@ -24,3 +24,7 @@ table.form-table {
 #response-list li{
   margin-bottom:25px;
 }
+
+.subcategory{
+  display: none;
+}

@@ -5,11 +5,42 @@
   crossorigin="anonymous">
   </script>
   <style type="text/css">
-  <!--
+ul{
+  list-style: none;
+}
+
+
     .subcategory{
       display:none;
     }
-  -->
+
+    #category-list .category{
+      width: 200px;
+      padding: 10px;
+      display:inline-block;
+      border-radius: 5px;
+      cursor: pointer;
+      border-width: 1px 1px 1px 1px;
+      border-style: solid;
+      border-color: #000;
+    }
+
+    #category-list .subcategory li{
+      width: 150px;
+      padding: 5px;
+      border:1px solid #000;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    #category-list .subcategory a{
+      text-decoration: none;
+      color: #000;
+    }
+  #title{
+    text-align: center;
+  }
+
   </style>
   <meta charset="UTF-8">
   <script>
@@ -42,7 +73,7 @@
   </script>
 </head>
 <body>
-  <h1>Gaming Space</h1>
+  <h1 id="title">Gaming Space</h1>
 <?php
 
 $db=new PDO('mysql:host=localhost;dbname=underground','root');
@@ -58,7 +89,7 @@ $result=$stmt->fetchAll();
   <tr>
     <td colspan="2">
      カテゴリを選択</br>
-      <ul>
+     <ul id="category-list">
   <?php
 $sql = 'select * from subcategory order by cat_id, id';
 $stmt = $db->query($sql);

@@ -9,7 +9,6 @@
 <body>
 <?php include_once('header.php')?>
 <section id="contents">
-<?php
   $db=new PDO('mysql:host=localhost;dbname=underground','root');
   $thread_id=$_GET['id'];
   if(!isset($thread_id))
