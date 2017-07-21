@@ -14,7 +14,7 @@ ul{
       display:none;
     }
     body{
-        background-color:f00cc0;
+        background-color:#FF8800;
         overflow-x: hidden;
     }
     #category-container{
@@ -82,9 +82,28 @@ ul{
     };
 
     function clickCategory(){
+
+      var $self = $(this);
+      var $subcategory = $self.next('.subcategory');
+
+      if($subcategory.is(':visible')){
+        $subcategory.slideToggle();
+        return;
+      }
+
       $('.subcategory').hide();
-      $(this).next('.subcategory').slideToggle();
-    }
+
+      var left = $self.offset().left;
+      var top = $self.offset().top+$self.height();
+
+    $subcategory
+    .css({
+      left:left,
+      top:top
+    })
+    .slideToggle();
+
+  }
 
     $(':input[name="category"]').change();
   });
