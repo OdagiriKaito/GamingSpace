@@ -1,30 +1,70 @@
 @charset "UTF-8";
-
-table.form-table {
-  margin: auto;
-}
-#header .jumbotron{
-  background-color: #339966;
+h1{
+  margin: 20px 0;
+  font-size: 250%;
+  font-family: fantasy;
 }
 
-#footer {
-  background-color: #6633FF;
-  font-size: 80%;
-  text-align: center;
-  color: #FFF;
-  padding: 5px 0;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
+ul{
+  list-style: none;
 }
-
-#response-list{
-  list-style-type: none;
-}
-#response-list li{
-  margin-bottom:25px;
-}
-
 .subcategory{
-  display: none;
+  display:none;
+}
+body{
+    background-color:#FF8800;
+    overflow-x: hidden;
+}
+#category-container{
+  overflow-x: scroll;
+  margin-bottom: 0px;
+}
+#category-list {
+  border: 1px solid #000;
+  width: 5000px;
+}
+#category-list .category{
+  width: 200px;
+  padding: 10px;
+  display:inline-block;
+  border-radius: 5px;
+  cursor: pointer;
+  border-width: 1px 1px 1px 1px;
+  border-style: solid;
+  border-color: #000;
+}
+
+#category-list .subcategory li{
+  width: 138px;
+  padding: 5px;
+  border:1px solid #000;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #00ff7f
+}
+
+#category-list .subcategory{
+      width: 150px;
+      position: absolute;
+    }
+
+#category-list .subcategory a{
+  text-decoration: none;
+  color: #000;
+}
+#title{
+  text-align: center;
+}
+
+#introduction{
+  margin: 20px 0;
+  font-size: 150%;
+  text-align: center;
+}
+
+#introduction-image{
+  height: 420px;
+  background: url("/img/introduction.png") center center no-repeat;
+  background-size: contain;
+  opacity: 0.5;
 }
